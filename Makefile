@@ -29,11 +29,12 @@ INSTALLDIR=install
 # Determine OS
 #
 OS?=$(shell uname -s | cut -c -7)
+OS5?=$(shell uname -s | cut -c -5)
 
 #
 # Windows rules
 #
-ifeq ($(OS),MINGW32)
+ifeq ($(OS5),MINGW)
 EXE=.exe
 COMMON_CXXFLAGS=-std=c++11
 COMMON_SRCS+=WinSerialPort.cpp WinPortFactory.cpp
@@ -203,6 +204,7 @@ BOSSASH_LIBS=-lreadline $(COMMON_LIBS)
 # Main targets
 #
 all: $(BINDIR)/bossa$(EXE) $(BINDIR)/bossac$(EXE) $(BINDIR)/bossash$(EXE)
+bossac: $(BINDIR)/bossac$(EXE)
 
 #
 # Common rules
