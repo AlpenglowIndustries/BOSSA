@@ -168,7 +168,8 @@ Samba::init()
             printf("Unsupported Cortex-M4 architecture\n");
     }
     // Check for ARM920T processor
-    else if (eproc == 4)
+    // eproc of 4 also catches 17D chip, hence extra check
+    else if (eproc == 4 && cid != ATSAMD21G17D_CHIPID)
     {
         // Check for SAM9XE architecture
         if (arch == 0x29)
@@ -178,7 +179,7 @@ Samba::init()
     }
     // Check for supported M0+ processor
     // NOTE: 0x1001000a is a ATSAMD21E18A, 0x1001001c is ATSAMR21E18A
-	else if (cid == 0x10010000 || cid == 0x10010100 || cid == 0x10010005 || cid == 0x1001000a || cid == 0x1001001c || cid == 0x10010093)
+	else if (cid == 0x10010000 || cid == 0x10010100 || cid == 0x10010005 || cid == 0x1001000a || cid == 0x1001001c || cid == ATSAMD21G17D_CHIPID)
     {
         return true;
     }
