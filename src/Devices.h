@@ -60,7 +60,7 @@
 #define ATSAMD21G18A_NVMCTRL_BASE            (0x41004000ul)
 
 #define ATSAMD21G17D_NAME                    "ATSAMD21G17D"
-#define ATSAMD21G17D_CHIPID                  (0x10012693ul)  // DIE & REV bitfields masked in Samba::chipId()
+#define ATSAMD21G17D_CHIPID                  (0x10010093ul)  // DIE & REV bitfields masked in Samba::chipId()
 #define ATSAMD21G17D_FLASH_BASE              (0x00000000ul + ATSAMD_BOOTLOADER_SIZE)
 #define ATSAMD21G17D_FLASH_PAGE_SIZE         (64ul)
 #define ATSAMD21G17D_FLASH_PAGES             (2048ul)
