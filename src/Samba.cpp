@@ -179,9 +179,10 @@ Samba::init()
     }
     // Check for supported M0+ processor
     // NOTE: 0x1001000a is a ATSAMD21E18A, 0x1001001c is ATSAMR21E18A
-	else if (cid == ATSAMD21J18A_CHIPID || cid == 0x10010100 || cid == ATSAMD21G18A_CHIPID || cid == ATSAMD21E18A_CHIPID || cid == ATSAMR21E18A_CHIPID || cid == ATSAMD21G17D_CHIPID)
+	  else if (cid == ATSAMD21J18A_CHIPID || cid == 0x10010100 || cid == ATSAMD21G18A_CHIPID || cid == ATSAMD21E18A_CHIPID || cid == ATSAMR21E18A_CHIPID || cid == ATSAMD21G17D_CHIPID)
     {
-        printf("M0+ processor detected\n");
+        if (_debug)
+            printf("M0+ processor detected\n");
         return true;
     }
     else
@@ -667,7 +668,8 @@ Samba::reset(void)
     case ATSAMD21E18A_CHIPID:
     case ATSAMR21E18A_CHIPID:
     case ATSAMD21G17D_CHIPID:
-        // http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0484c/index.html
+        //https://developer.arm.com/documentation/ddi0419/c/System-Level-Architecture/System-Address-Map/System-Control-Space--SCS-/Application-Interrupt-and-Reset-Control-Register--AIRCR?lang=en
+        // requests a system reset from ARMv6-M core, which M0+ belong to
         writeWord(0xE000ED0C, 0x05FA0004);
         break;
 
