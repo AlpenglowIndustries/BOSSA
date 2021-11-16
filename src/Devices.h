@@ -66,7 +66,7 @@
 #define ATSAMD21G17D_FLASH_PAGES             (2048ul)
 #define ATSAMD21G17D_FLASH_PLANES            (1ul)
 #define ATSAMD21G17D_FLASH_LOCK_REGIONS      (16ul)
-#define ATSAMD21G17D_BUFFER_ADDR             (0x20002000ul)
+#define ATSAMD21G17D_BUFFER_ADDR             (0x20001000ul)
 #define ATSAMD21G17D_STACK_ADDR              (0x20004000ul)
 #define ATSAMD21G17D_NVMCTRL_BASE            (0x41004000ul)
 

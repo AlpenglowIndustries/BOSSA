@@ -97,6 +97,8 @@ Flasher::write(const char* filename)
 
             // If multi-page write is available....
 
+            printf("Method is multi-page write\n");
+
             const uint32_t BLK_SIZE = 4096;
             uint32_t offset = 0;
             uint8_t buffer[BLK_SIZE];
@@ -118,6 +120,7 @@ Flasher::write(const char* filename)
         } else {
 
             // ...otherwise go with the legacy slow method
+            printf("Method is slow page write\n");
 
             uint8_t buffer[pageSize];
             const uint32_t divisor = (numPages / 10) ? (numPages / 10) : 1;
